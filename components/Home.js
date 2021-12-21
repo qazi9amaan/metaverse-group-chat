@@ -1,17 +1,23 @@
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
 import PeopleChat from "./People";
-import { IoMdLogOut, IoMdCreate } from "react-icons/io";
+import {  IoMdCreate } from "react-icons/io";
 import Avatar from "./Avatar";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ProfileSettingsModal from "./ProfileSettingsModal";
-import ChatSection from "./ChatSection";
+import BodySection from "./BodySection";
 
 function HomePage() {
     const { logout, user } = useMoralis();
-   
-    const [username, setUsername] = useState(user.getUsername());
     const [showModal, setShowModal] = useState(false);
+  
+    const [bigScreen, setbigScreen] = useState('global');
+
+    useEffect(() => {
+      if (user.get("unameset") === undefined) {
+        setShowModal(true);
+      }
+    }, [showModal]);
 
     return (
       <div className="h-screen">
@@ -23,19 +29,13 @@ function HomePage() {
           <div
             className="h-screen w-80 
                 border-r-2 pb-4 border-stone-900
-                overflow-y-auto bg-black
-                "
+                overflow-y-auto bg-black  "
           >
             <div
               className="flex sticky top-0 justify-between 
               p-3 border-b-2 pb-3 pt-4 border-stone-900"
             >
-              <Avatar
-                myprofile={true}
-                user={user}
-                username={username}
-                setUsername={setUsername}
-              />
+              <Avatar user={user} />
               <h3 className="text-white font-bold">Metachat</h3>
               <Fragment>
                 <IoMdCreate
@@ -53,31 +53,11 @@ function HomePage() {
               </Fragment>
             </div>
 
-            <PeopleChat />
+            <PeopleChat bigScreen={bigScreen} setbigScreen={setbigScreen} />
           </div>
 
-          <div className="h-screen w-full flex flex-col grow">
-            <div
-              className="flex sticky top-0 
-                justify-between align-middle 
-                 bg-black    p-3 pb-3 pt-4
-                border-b-2 border-zinc-900"
-            >
-              <h3></h3>
-              <h3
-                className="font-semibold 
-              text-gray-50"
-              >
-                Metachat
-              </h3>
-              <IoMdLogOut
-                onClick={logout}
-                size={21}
-                className="mr-2 text-gray-400 hover:text-white hover:cursor-pointer"
-              />
-            </div>
-
-           <ChatSection/>
+          <div className="h-screen flex-grow flex flex-col ">
+           <BodySection bigScreen={bigScreen} />
           </div>
         </div>
       </div>

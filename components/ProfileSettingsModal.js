@@ -3,12 +3,12 @@ import { useMoralis } from "react-moralis";
 
 export default function ProfileSettingsModal({ showModal, setShowModal , user}) {
 
-  const [newUsername, setnewUsername] = useState(user.getUsername())
+  const [username, setnewUsername] = useState(user.getUsername());
   const { setUserData } = useMoralis();
 
   const savenewUsername = ()=>{
-    if(newUsername == null) return;
-    setUserData({username : newUsername})
+    if (username == null) return;
+    setUserData({ username, unameset : true });
     setShowModal(false);
     return
   }
@@ -18,12 +18,14 @@ export default function ProfileSettingsModal({ showModal, setShowModal , user}) 
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative z-40 w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0  z-50 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Change username</h3>
+                  <h3 className="text-3xl font-semibold">
+                    Change your username
+                  </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
@@ -35,17 +37,19 @@ export default function ProfileSettingsModal({ showModal, setShowModal , user}) 
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    You can change your username easily, and remember this will
-                    be visible to other users and your profile picture will be
-                    generated on same username.
+                  <p className="mb-4 pt-2 text-blueGray-500 text-lg leading-relaxed">
+                    Your username will be visible to other users and your
+                    profile picture is generated on the same username, please
+                    make sure you change it here.
                   </p>
 
                   <input
-                    onChange = {(e)=>{setnewUsername(e.target.value)}}
+                    onChange={(e) => {
+                      setnewUsername(e.target.value);
+                    }}
                     className="w-full  p-2 rounded-md border-2 border-gray-300"
                     placeholder="What's your username?"
-                    value={newUsername}
+                    value={username}
                   />
                 </div>
                 {/*footer*/}
@@ -62,7 +66,7 @@ export default function ProfileSettingsModal({ showModal, setShowModal , user}) 
                     type="button"
                     onClick={savenewUsername}
                   >
-                    Save Changes
+                    Change
                   </button>
                 </div>
               </div>
