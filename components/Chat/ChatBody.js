@@ -20,6 +20,7 @@ function ChatBody({ eofMessages }) {
       live: true,
     }
   );
+   
 
   return (
     <div
@@ -27,13 +28,17 @@ function ChatBody({ eofMessages }) {
      pt-5 pb-8  overflow-y-auto grow"
     >
       <div className=" w-3/4 ">
-        {data.map( msg => <MessageItem key={msg.id} user={user} message={msg} />)}
+        {data.map((msg) => (
+          <MessageItem key={msg.id} user={user} message={msg} />
+        ))}
 
         <div
+          style={{ paddingBottom: "12rem" }}
           ref={eofMessages}
           className="flex pt-5 text-stone-300 align-middle justify-center "
         >
-          You're upto date. 🎉
+          {eofMessages.current &&  eofMessages.current.scrollIntoView({ behavior: "smooth" })}
+          You're all upto date. 🎉
         </div>
       </div>
     </div>

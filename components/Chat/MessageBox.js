@@ -43,7 +43,7 @@ function MessageBox({ eofMessages }) {
                text-white  flex-grow placeholder-gray-500 "
         placeholder={`Enter a message ${user.getUsername()}`}
       />
-      <button type="submit" className="font-bold text-green-500">
+      <button type="submit" className="font-bold text-teal-300">
         Send
       </button>
     </form>

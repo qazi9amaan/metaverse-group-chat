@@ -7,8 +7,8 @@ function SenderMessage({ message }) {
     <Fragment>
       <div className="flex justify-end mt-3">
         <div className=" max-w-2/5">
-          <div className="bg-green-500 p-2 px-5 rounded-full">
-            <h4 className="mb-0 pb-0">{message.get("message")} </h4>
+          <div className="bg-teal-300 p-2 px-5 rounded-full">
+            <h4 className="mb-0 text-black pb-0">{message.get("message")} </h4>
           </div>
           <small className="flex pt-0 justify-end mr-2 font-normal text-gray-500">
             {

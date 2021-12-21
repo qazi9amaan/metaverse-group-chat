@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import RecieverMessage from "./Messages/RecieverMessage";
-import SenderMessage from "./Messages/SenderMessage";
+import RecieverMessage from "../Messages/RecieverMessage";
+import SenderMessage from "../Messages/SenderMessage";
 
 function MessageItem({ message, user }) {
   return (

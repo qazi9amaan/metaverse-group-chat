@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import Avatar from '../Avatar';
 import TimeAgo from 'timeago-react';
+import Avatar from '../shared/Avatar';
 
 function RecieverMessage({ message }) {
   return (
@@ -13,7 +13,7 @@ function RecieverMessage({ message }) {
                      justify-center  flex rounded-full border-2
                 border-slate-600 "
           >
-            <Avatar username={message.get("username")} width={20} height={20} />
+            <Avatar  username={message.get("username")} width={20} height={20} />
           </div>
           <div className="ml-2">
             <div

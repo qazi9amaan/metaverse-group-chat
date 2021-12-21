@@ -1,23 +1,21 @@
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
-import PeopleChat from "./People";
 import {  IoMdCreate } from "react-icons/io";
-import Avatar from "./Avatar";
 import { Fragment, useEffect, useState } from "react";
-import ProfileSettingsModal from "./ProfileSettingsModal";
+
 import BodySection from "./BodySection";
+import PeopleChat from "./shared/People";
+import Avatar from "./shared/Avatar";
 
 function HomePage() {
-    const { logout, user } = useMoralis();
-    const [showModal, setShowModal] = useState(false);
-  
+    const {  user } = useMoralis();
     const [bigScreen, setbigScreen] = useState('global');
 
     useEffect(() => {
       if (user.get("unameset") === undefined) {
-        setShowModal(true);
+        setbigScreen("settings");
       }
-    }, [showModal]);
+    }, [bigScreen]);
 
     return (
       <div className="h-screen">
@@ -40,15 +38,10 @@ function HomePage() {
               <Fragment>
                 <IoMdCreate
                   onClick={() => {
-                    setShowModal(true);
+                    setbigScreen("settings");
                   }}
                   size={21}
                   className="mr-2 text-gray-400 hover:text-white hover:cursor-pointer rounded-full"
-                />
-                <ProfileSettingsModal
-                  user={user}
-                  showModal={showModal}
-                  setShowModal={setShowModal}
                 />
               </Fragment>
             </div>
@@ -57,7 +50,7 @@ function HomePage() {
           </div>
 
           <div className="h-screen flex-grow flex flex-col ">
-           <BodySection bigScreen={bigScreen} />
+            <BodySection bigScreen={bigScreen} setbigScreen={setbigScreen} />
           </div>
         </div>
       </div>

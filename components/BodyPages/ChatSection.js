@@ -1,14 +1,12 @@
 import { Fragment, useRef } from "react";
 import BodyNavbar from "./BodyNavbar";
-import ChatBody from "./ChatBody";
-import MessageBox from "./MessageBox";
+import ChatBody from "../Chat/ChatBody";
+import MessageBox from "../Chat/MessageBox";
 
 
 
 function ChatSection() {
-    const eofMessages = useRef(null);
-
-
+    const eofMessages = useRef();
     return (
       <Fragment>
           <BodyNavbar title={"Global chats"}/>

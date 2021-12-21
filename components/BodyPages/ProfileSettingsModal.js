@@ -37,20 +37,40 @@ export default function ProfileSettingsModal({ showModal, setShowModal , user}) 
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="mb-4 pt-2 text-blueGray-500 text-lg leading-relaxed">
+                  <div className="flex flex-wrap -mx-3 mb-2">
+                    <div className="w-full px-3">
+                      <label className="block uppercase  text-gray-600 text-sm font-bold mb-1">
+                        eth Address
+                      </label>
+                      <input
+                        disabled
+                        className="w-full  p-2 rounded-md border-2 mb-2 bg-gray-200"
+                        placeholder="What's your username?"
+                        value={user.get("ethAddress")}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap -mx-3 mb-2">
+                    <div className="w-full px-3">
+                      <label className="block uppercase  text-gray-600 text-sm font-bold mb-1">
+                        USERNAME
+                      </label>
+                      <input
+                        onChange={(e) => {
+                          setnewUsername(e.target.value);
+                        }}
+                        className="w-full  p-2 rounded-md border-2 border-gray-300"
+                        placeholder="What's your username?"
+                        value={username}
+                      />
+                    </div>
+                  </div>
+                  <p className="mb-2 pt-0 text-gray-500 text-sm leading-relaxed">
                     Your username will be visible to other users and your
                     profile picture is generated on the same username, please
-                    make sure you change it here.
+                    make sure you change it.
                   </p>
-
-                  <input
-                    onChange={(e) => {
-                      setnewUsername(e.target.value);
-                    }}
-                    className="w-full  p-2 rounded-md border-2 border-gray-300"
-                    placeholder="What's your username?"
-                    value={username}
-                  />
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
