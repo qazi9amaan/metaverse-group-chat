@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Fragment, useState } from "react";
-import ProfileSettingsModal from "../BodyPages/ProfileSettingsModal";
 
 function Avatar({ username , user, width = 24, height = 24 }) {
   return (

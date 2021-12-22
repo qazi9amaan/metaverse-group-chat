@@ -1,12 +1,11 @@
-import { useMoralis,useMoralisQuery } from "react-moralis";
+import { useMoralis,useMoralisQuery, useMoralisSubscription } from "react-moralis";
 import MessageItem from "./MessageItem";
 
 function ChatBody({ eofMessages }) {
-
-  const MIN_DURATION = 60;
+  const MIN_DURATION = 15;
   const { user } = useMoralis();
 
-  const { data, loading, error} = useMoralisQuery(
+  const { data, loading, error } = useMoralisQuery(
     "Messages",
     (query) =>
       query
@@ -18,9 +17,9 @@ function ChatBody({ eofMessages }) {
     [],
     {
       live: true,
+      
     }
   );
-   
 
   return (
     <div
@@ -37,7 +36,8 @@ function ChatBody({ eofMessages }) {
           ref={eofMessages}
           className="flex pt-5 text-stone-300 align-middle justify-center "
         >
-          {eofMessages.current &&  eofMessages.current.scrollIntoView({ behavior: "smooth" })}
+          {eofMessages.current &&
+            eofMessages.current.scrollIntoView({ behavior: "smooth" })}
           You're all upto date. 🎉
         </div>
       </div>
