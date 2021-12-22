@@ -15,4 +15,8 @@ Now install all the node dependencies `npm i`
 Run `npm run dev` to start the server Then  Navigate to `http://localhost:3000/`.
 
 ## Demo video
-https://github.com/qazi9amaan/metaverse-group-chat/blob/main/ss/demo.mp4
+![gif](https://user-images.githubusercontent.com/56332460/147144326-7d580bfc-c4f1-4883-99e6-bec508e5d64b.gif)
+
+
+https://user-images.githubusercontent.com/56332460/147144361-0136c2b6-00d5-4e63-b8c5-09ad3fd6a212.mp4
+
