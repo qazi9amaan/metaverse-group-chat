@@ -8,10 +8,10 @@ Moralis provides us the backend support for storing and retrieving data from blo
 <img src="/ss/bg.png"></img>
 
 ## How to run?
-Visit `moralis.io` and `create a server`.
-Create a `.env.local` file in your project directory at `/project-name/`. And store NEXT_PUBLIC_APP_ID and NEXT_PUBLIC_SERVER_URL, which you will get from morlais server.
-Now install all the node dependencies `npm i`
-Run `npm run dev` to start the server Then  Navigate to `http://localhost:3000/`.
+1. Visit `moralis.io` and `create a server`.
+2. Create a `.env.local` file in your project directory at `/project-name/`. And store NEXT_PUBLIC_APP_ID and NEXT_PUBLIC_SERVER_URL, which you will get from morlais server.
+3. Now install all the node dependencies `npm i`
+4. Run `npm run dev` to start the server Then  Navigate to `http://localhost:3000/`.
 
 ## Demo video
 https://user-images.githubusercontent.com/56332460/147144361-0136c2b6-00d5-4e63-b8c5-09ad3fd6a212.mp4
